@@ -1,0 +1,22 @@
+{
+  "name": "askly",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch ./src/main.ts"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.10.4",
+    "@prisma/client": "^5.13.0",
+    "dotenv": "^16.4.5",
+    "graphql": "^16.8.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.12.11",
+    "prisma": "^5.13.0",
+    "tsup": "^8.0.2",
+    "tsx": "^4.9.4",
+    "typescript": "^5.4.5"
+  }
+}
