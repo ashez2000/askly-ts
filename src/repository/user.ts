@@ -22,13 +22,15 @@ export const findById = async (id: string) => {
 
 export const findByCredentials = async (input: AuthInput) => {
   const { username, password } = input
-  const hash = await argon.hash(password)
-  const user = await db.user.findFirst({
-    where: {
-      username,
-      password: hash,
-    },
-  })
+  const user = await db.user.findUnique({ where: { username } })
+  if (!user) {
+    return null
+  }
+
+  const isMatch = await argon.verify(user.password, password)
+  if (!isMatch) {
+    return null
+  }
 
   return user
 }
