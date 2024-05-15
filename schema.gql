@@ -61,9 +61,10 @@ type Answer {
 
 input AnswerInput {
   content: String!
+  questionId: ID!
 }
 
 type AnswerResult {
   error: String
-  answer: Question
+  answer: Answer
 }
