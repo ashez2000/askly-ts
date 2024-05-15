@@ -3,3 +3,4 @@ dist
 src/__generated__
 
 .env
+prisma/*.db
