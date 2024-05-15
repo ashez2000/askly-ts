@@ -1,10 +1,16 @@
 type Query {
   hello: String
+  questions: [Question!]
+  question(id: ID!): Question
 }
 
 type Mutation {
-  signup(input: AuthInput): AuthResult!
-  signin(input: AuthInput): AuthResult!
+  signup(input: AuthInput!): AuthResult!
+  signin(input: AuthInput!): AuthResult!
+
+  questionCreate(input: QuestionInput!): QuestionResult!
+  questionUpdate(id: ID!, input: QuestionInput!): QuestionResult!
+  questionDelete(id: ID!): QuestionResult!
 }
 
 type User {
@@ -12,7 +18,7 @@ type User {
   username: String!
 }
 
-type AuthInput {
+input AuthInput {
   username: String!
   password: String!
 }
@@ -20,4 +26,22 @@ type AuthInput {
 type AuthResult {
   error: String
   token: String
+}
+
+type Question {
+  id: ID!
+  title: String!
+  content: String!
+  tags: String!
+}
+
+input QuestionInput {
+  title: String!
+  content: String!
+  tags: String!
+}
+
+type QuestionResult {
+  error: String
+  question: Question
 }

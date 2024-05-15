@@ -5,7 +5,7 @@ import { signToken } from '@/utils/jwt.js'
 export const signup: MutationResolvers['signup'] = async (_, args) => {
   // TODO: validation
   try {
-    const user = await repo.user.create(args.input!)
+    const user = await repo.user.create(args.input)
     const token = signToken({ id: user.id })
     return {
       error: null,
@@ -22,7 +22,7 @@ export const signup: MutationResolvers['signup'] = async (_, args) => {
 export const signin: MutationResolvers['signin'] = async (_, args) => {
   // TODO: validation
   try {
-    const user = await repo.user.findByCredentials(args.input!)
+    const user = await repo.user.findByCredentials(args.input)
     if (!user) {
       return {
         error: 'Invalid Credentials',
