@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "start": "node ./dist/main.js",
     "dev": "tsx watch ./src/main.ts",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "build": "tsup ./src/main.ts --format esm",
+    "codegen": "graphql-codegen --config codegen.yml",
+    "db:push": "prisma db push"
   },
   "dependencies": {
     "@apollo/server": "^4.10.4",
