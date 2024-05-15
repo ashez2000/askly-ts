@@ -1,10 +1,7 @@
 import argon from 'argon2'
-import db from '@/db/mod.js'
 
-type AuthInput = {
-  username: string
-  password: string
-}
+import { AuthInput } from '@/__generated__/resolvers-types.js'
+import db from '@/db/mod.js'
 
 export const create = async (input: AuthInput) => {
   const { username, password } = input

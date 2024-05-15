@@ -1,3 +1,23 @@
 type Query {
   hello: String
 }
+
+type Mutation {
+  signup(input: AuthInput): AuthResult!
+  signin(input: AuthInput): AuthResult!
+}
+
+type User {
+  id: ID!
+  username: String!
+}
+
+type AuthInput {
+  username: String!
+  password: String!
+}
+
+type AuthResult {
+  error: String
+  token: String
+}
