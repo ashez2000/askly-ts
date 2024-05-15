@@ -1,6 +1,8 @@
 type Query {
   hello: String
 
+  me: UserResult!
+
   questions: [Question!]
   question(id: ID!): Question
 
@@ -24,6 +26,11 @@ type Mutation {
 type User {
   id: ID!
   username: String!
+}
+
+type UserResult {
+  error: String
+  user: User
 }
 
 input AuthInput {
