@@ -6,6 +6,11 @@ const User: UserResolvers = {
     // TODO: fix type issue
     return (await repo.question.findByUserId(p.id)) as any
   },
+
+  answers: async (p) => {
+    // TODO: fix type issue
+    return (await repo.answer.findByUserId(p.id)) as any
+  },
 }
 
 export default User

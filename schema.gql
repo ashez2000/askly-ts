@@ -28,6 +28,7 @@ type User {
   username: String!
 
   questions: [Question!]!
+  answers: [Answer!]!
 }
 
 type UserResult {
@@ -51,6 +52,7 @@ type Question {
   content: String!
   tags: String!
   user: User!
+  answers: [Answer!]!
 }
 
 input QuestionInput {
@@ -67,6 +69,8 @@ type QuestionResult {
 type Answer {
   id: ID!
   content: String!
+  question: Question!
+  user: User!
 }
 
 input AnswerInput {

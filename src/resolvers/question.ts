@@ -1,6 +1,6 @@
 import { QuestionResolvers } from '@/__generated__/resolvers-types.js'
 import userLoader from '@/loaders/user.js'
-// import * as repo from '@/repository/mod.js'
+import * as repo from '@/repository/mod.js'
 
 const Question: QuestionResolvers = {
   // TODO: fix userId
@@ -9,6 +9,10 @@ const Question: QuestionResolvers = {
     // const user = await repo.user.findById(p.userId)
     const user = await userLoader.load(p.userId)
     return user as any
+  },
+
+  answers: async (p) => {
+    return (await repo.answer.findByQuestionId(p.id)) as any
   },
 }
 

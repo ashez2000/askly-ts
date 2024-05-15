@@ -5,6 +5,14 @@ export const find = async () => {
   return await db.answer.findMany()
 }
 
+export const findByUserId = async (userId: string) => {
+  return await db.answer.findMany({ where: { userId } })
+}
+
+export const findByQuestionId = async (questionId: string) => {
+  return await db.answer.findMany({ where: { questionId } })
+}
+
 export const findById = async (id: string) => {
   return await db.answer.findUnique({ where: { id } })
 }
