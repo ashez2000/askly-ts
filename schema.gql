@@ -1,7 +1,11 @@
 type Query {
   hello: String
+
   questions: [Question!]
   question(id: ID!): Question
+
+  answers: [Answer!]
+  answer(id: ID!): Answer
 }
 
 type Mutation {
@@ -11,6 +15,10 @@ type Mutation {
   questionCreate(input: QuestionInput!): QuestionResult!
   questionUpdate(id: ID!, input: QuestionInput!): QuestionResult!
   questionDelete(id: ID!): QuestionResult!
+
+  answerCreate(input: AnswerInput!): AnswerResult!
+  answerUpdate(id: ID!, input: AnswerInput!): AnswerResult!
+  answerDelete(id: ID!): AnswerResult!
 }
 
 type User {
@@ -44,4 +52,18 @@ input QuestionInput {
 type QuestionResult {
   error: String
   question: Question
+}
+
+type Answer {
+  id: ID!
+  content: String!
+}
+
+input AnswerInput {
+  content: String!
+}
+
+type AnswerResult {
+  error: String
+  answer: Question
 }

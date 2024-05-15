@@ -13,6 +13,7 @@ model User {
   password String
 
   questions Question[]
+  answers   Answer[]
 }
 
 model Question {
@@ -20,6 +21,14 @@ model Question {
   title   String @unique
   content String
   tags    String
+  userId  String
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Answer {
+  id      String @id @default(uuid())
+  content String
   userId  String
 
   user User @relation(fields: [userId], references: [id])

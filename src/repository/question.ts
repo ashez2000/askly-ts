@@ -1,6 +1,5 @@
 import { QuestionInput } from '@/__generated__/resolvers-types.js'
 import db from '@/db/mod.js'
-import { Prisma } from '@prisma/client'
 
 export const find = async () => {
   return await db.question.findMany()
