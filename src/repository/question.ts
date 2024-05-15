@@ -9,6 +9,10 @@ export const findById = async (id: string) => {
   return await db.question.findUnique({ where: { id } })
 }
 
+export const findByUserId = async (userId: string) => {
+  return await db.question.findMany({ where: { userId } })
+}
+
 export const create = async (input: QuestionInput & { userId: string }) => {
   return await db.question.create({
     data: input,

@@ -26,6 +26,8 @@ type Mutation {
 type User {
   id: ID!
   username: String!
+
+  questions: [Question!]!
 }
 
 type UserResult {
@@ -48,6 +50,7 @@ type Question {
   title: String!
   content: String!
   tags: String!
+  user: User!
 }
 
 input QuestionInput {

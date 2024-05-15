@@ -4,3 +4,4 @@ src/__generated__
 
 .env
 prisma/*.db
+tmp
